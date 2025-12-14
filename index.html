@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GAURAV AI SERVICE | Unlock Gemini Ultra</title>
+    <title>GAURAV AI | Premium Access</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
@@ -14,284 +16,245 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0f172a; /* Dark Background */
-            color: #ffffff;
-            overflow-x: hidden;
-        }
-        
-        /* Neon Glow Utility */
-        .neon-text {
-            text-shadow: 0 0 10px rgba(59, 130, 246, 0.7), 0 0 20px rgba(147, 51, 234, 0.5);
-        }
-        
-        /* Glassmorphism Card */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .glass-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2);
-            border-color: rgba(59, 130, 246, 0.4);
+            background-color: #030712; /* Deepest Black/Blue */
+            color: #f8fafc;
         }
 
-        /* Gradient Button */
-        .btn-gradient {
-            background: linear-gradient(90deg, #3b82f6, #9333ea);
-            transition: opacity 0.3s ease;
+        /* Modern Gradient Text */
+        .text-gradient {
+            background: linear-gradient(to right, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .btn-gradient:hover {
-            opacity: 0.9;
+
+        /* Premium Card Style - No blurry mess, just clean dark grey */
+        .premium-card {
+            background-color: #111827; /* Dark Gray */
+            border: 1px solid #374151;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .premium-card:hover {
+            border-color: #60a5fa;
+            transform: translateY(-2px);
+        }
+
+        /* Input Fields Reset */
+        .custom-input {
+            background-color: #1f2937;
+            border: 1px solid #374151;
+            color: white;
+            transition: all 0.2s;
+        }
+        .custom-input:focus {
+            border-color: #60a5fa;
+            outline: none;
+            background-color: #111827;
+        }
+
+        /* Action Button */
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+        .btn-primary:active {
+            transform: scale(0.98);
         }
     </style>
 </head>
-<body class="antialiased selection:bg-purple-500 selection:text-white">
+<body class="min-h-screen flex flex-col">
 
-    <nav class="w-full py-6 px-4 md:px-12 flex justify-between items-center absolute top-0 left-0 z-50">
-        <div class="text-2xl font-bold tracking-tighter">
-            GAURAV <span class="text-blue-500">AI</span>
+    <nav class="w-full py-5 px-6 flex justify-between items-center bg-[#030712]/90 backdrop-blur-md fixed top-0 z-50 border-b border-gray-800">
+        <div class="text-xl font-bold tracking-tight">
+            GAURAV<span class="text-blue-500">.AI</span>
         </div>
-        <a href="#pricing" class="px-5 py-2 glass-card rounded-full text-sm font-medium hover:bg-white/10">
-            Get Started
-        </a>
+        <div class="text-xs text-gray-400 bg-gray-900 px-3 py-1 rounded-full border border-gray-800">
+            v2.0 Beta
+        </div>
     </nav>
 
-    <header class="relative min-h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden">
-        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style="animation-delay: 2s;"></div>
-
-        <div class="relative z-10 max-w-4xl">
-            <div class="inline-block px-4 py-1 mb-4 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider">
-                Powered by Gemini Ultra
-            </div>
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
-                Unlock the Future of <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 neon-text">AI Generation</span>
+    <main class="flex-grow pt-28 pb-10 px-4">
+        
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="text-blue-500 font-semibold tracking-wider text-xs uppercase mb-2 block">Powered by Gemini Ultra</span>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+                Unlock <br><span class="text-gradient">Super Intelligence</span>
             </h1>
-            <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
-                Experience the raw power of advanced LLMs. Generate code, content, and creative ideas instantly with Gaurav AI Service.
+            <p class="text-gray-400 text-sm md:text-base leading-relaxed">
+                Generate code, content, and ideas instantly. Choose a plan to get started immediately.
             </p>
-            <a href="#pricing" class="btn-gradient px-8 py-4 rounded-full text-lg font-bold shadow-lg shadow-blue-500/30 transform hover:scale-105 transition duration-200">
-                View Plans <i class="fas fa-arrow-right ml-2"></i>
-            </a>
         </div>
-    </header>
 
-    <section id="pricing" class="py-20 px-4 relative z-10">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Choose Your Power</h2>
-                <p class="text-gray-400">Simple pricing. No hidden fees. Instant access.</p>
+        <div class="max-w-md mx-auto mb-10">
+            <div class="bg-gray-900/50 p-2 rounded-xl border border-gray-800 flex gap-2">
+                <input type="text" id="couponInput" placeholder="Have a code? (Try GAURAVAI)" class="custom-input w-full px-4 py-3 rounded-lg text-sm">
+                <button onclick="applyCoupon()" class="bg-gray-800 hover:bg-gray-700 text-white px-5 rounded-lg text-sm font-semibold transition border border-gray-700">
+                    Apply
+                </button>
             </div>
-
-            <div class="max-w-md mx-auto mb-16">
-                <div class="glass-card p-2 rounded-xl flex items-center">
-                    <i class="fas fa-tag text-blue-400 ml-3"></i>
-                    <input type="text" id="couponInput" placeholder="Enter Coupon (Try: GAURAVAI)" class="w-full bg-transparent border-none focus:ring-0 text-white placeholder-gray-500 px-4 py-2 outline-none">
-                    <button onclick="applyCoupon()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition">
-                        Apply
-                    </button>
-                </div>
-                <p id="couponMessage" class="text-center mt-3 text-sm font-medium h-5 opacity-0 transition-opacity duration-300"></p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                
-                <div class="glass-card rounded-2xl p-8 relative overflow-hidden flex flex-col">
-                    <div class="absolute top-0 right-0 bg-blue-500/20 w-32 h-32 rounded-full blur-2xl -mr-16 -mt-16"></div>
-                    <h3 class="text-xl font-semibold text-blue-300 mb-2">Gemini Ultra Lite</h3>
-                    <div class="flex items-baseline gap-2 mb-6">
-                        <span class="text-4xl font-bold">₹<span id="price-lite">99</span></span>
-                        <span class="text-gray-500 line-through text-sm">₹199</span>
-                    </div>
-                    <ul class="space-y-4 mb-8 flex-1 text-gray-300">
-                        <li><i class="fas fa-check text-blue-500 mr-2"></i> 100 AI Generations</li>
-                        <li><i class="fas fa-check text-blue-500 mr-2"></i> Standard Speed</li>
-                        <li><i class="fas fa-check text-blue-500 mr-2"></i> Email Support</li>
-                    </ul>
-                    <button onclick="openModal('Gemini Ultra Lite', 'price-lite')" class="w-full py-3 rounded-xl border border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white transition font-bold">
-                        Buy Lite
-                    </button>
-                </div>
-
-                <div class="glass-card rounded-2xl p-8 relative overflow-hidden border-purple-500/50 flex flex-col transform md:-translate-y-4">
-                    <div class="absolute top-0 right-0 bg-purple-600 text-xs font-bold px-3 py-1 rounded-bl-lg">POPULAR</div>
-                    <div class="absolute top-0 right-0 bg-purple-500/20 w-32 h-32 rounded-full blur-2xl -mr-16 -mt-16"></div>
-                    <h3 class="text-xl font-semibold text-purple-300 mb-2">Gemini Ultra Pro</h3>
-                    <div class="flex items-baseline gap-2 mb-6">
-                        <span class="text-4xl font-bold">₹<span id="price-pro">1999</span></span>
-                        <span class="text-gray-500 line-through text-sm">₹2999</span>
-                    </div>
-                    <ul class="space-y-4 mb-8 flex-1 text-gray-300">
-                        <li><i class="fas fa-check text-purple-500 mr-2"></i> Unlimited Generations</li>
-                        <li><i class="fas fa-check text-purple-500 mr-2"></i> Fast Response Time</li>
-                        <li><i class="fas fa-check text-purple-500 mr-2"></i> Priority Support</li>
-                        <li><i class="fas fa-check text-purple-500 mr-2"></i> Early Access to Features</li>
-                    </ul>
-                    <button onclick="openModal('Gemini Ultra Pro', 'price-pro')" class="w-full btn-gradient py-3 rounded-xl text-white font-bold shadow-lg">
-                        Buy Pro
-                    </button>
-                </div>
-
-            </div>
+            <p id="couponMessage" class="text-center mt-2 text-xs font-semibold h-4"></p>
         </div>
-    </section>
 
-    <footer class="py-8 text-center text-gray-600 text-sm">
-        <p>&copy; 2024 Gaurav AI Service. All rights reserved.</p>
-    </footer>
-
-    <div id="checkoutModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
-        <div class="glass-card w-full max-w-md p-8 rounded-2xl relative transform scale-95 transition-transform duration-300" id="modalContent">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white">
-                <i class="fas fa-times text-xl"></i>
-            </button>
+        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             
-            <h3 class="text-2xl font-bold mb-1">Final Step</h3>
-            <p class="text-gray-400 text-sm mb-6">Enter your details to receive access.</p>
-            
-            <form id="checkoutForm" onsubmit="handlePayment(event)">
-                <div class="space-y-4">
-                    <div>
-                        <label class="block text-sm text-gray-400 mb-1">Product</label>
-                        <input type="text" id="modalPlanName" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-gray-300" readonly>
-                    </div>
-                    <div>
-                        <label class="block text-sm text-gray-400 mb-1">Final Price</label>
-                        <input type="text" id="modalPrice" class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white font-bold" readonly>
-                    </div>
-                    <div>
-                        <label class="block text-sm text-gray-400 mb-1">Email Address <span class="text-red-500">*</span></label>
-                        <input type="email" id="userEmail" required placeholder="john@example.com" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-blue-500 outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-sm text-gray-400 mb-1">Phone Number <span class="text-red-500">*</span></label>
-                        <input type="tel" id="userPhone" required placeholder="9876543210" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-white focus:border-blue-500 outline-none">
-                    </div>
+            <div class="premium-card p-6 flex flex-col relative">
+                <h3 class="text-gray-400 font-medium mb-1">Starter</h3>
+                <h2 class="text-2xl font-bold text-white mb-4">Gemini Lite</h2>
+                <div class="mb-6">
+                    <span class="text-3xl font-bold text-white">₹<span id="price-lite">99</span></span>
+                    <span class="text-gray-500 text-sm line-through ml-2">₹199</span>
                 </div>
                 
-                <button type="submit" class="w-full btn-gradient mt-8 py-3 rounded-lg font-bold text-white shadow-lg">
-                    Pay Now <i class="fas fa-lock ml-2 text-sm"></i>
+                <div class="space-y-3 mb-8 flex-1">
+                    <div class="flex items-center text-sm text-gray-300">
+                        <i class="fas fa-check-circle text-blue-500 mr-3"></i> 100 Generations
+                    </div>
+                    <div class="flex items-center text-sm text-gray-300">
+                        <i class="fas fa-check-circle text-blue-500 mr-3"></i> Standard Speed
+                    </div>
+                    <div class="flex items-center text-sm text-gray-300">
+                        <i class="fas fa-check-circle text-blue-500 mr-3"></i> Email Support
+                    </div>
+                </div>
+
+                <button onclick="openModal('Gemini Lite', 'price-lite')" class="w-full py-3 rounded-xl bg-gray-800 hover:bg-gray-700 text-white font-semibold transition border border-gray-700 text-sm">
+                    Select Lite
+                </button>
+            </div>
+
+            <div class="premium-card p-6 flex flex-col relative border-blue-500/30">
+                <div class="absolute -top-3 right-4 bg-gradient-to-r from-blue-600 to-purple-600 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                    Most Popular
+                </div>
+                <h3 class="text-blue-400 font-medium mb-1">Professional</h3>
+                <h2 class="text-2xl font-bold text-white mb-4">Gemini Pro</h2>
+                <div class="mb-6">
+                    <span class="text-3xl font-bold text-white">₹<span id="price-pro">1999</span></span>
+                    <span class="text-gray-500 text-sm line-through ml-2">₹2999</span>
+                </div>
+                
+                <div class="space-y-3 mb-8 flex-1">
+                    <div class="flex items-center text-sm text-gray-300">
+                        <i class="fas fa-star text-purple-500 mr-3"></i> Unlimited Access
+                    </div>
+                    <div class="flex items-center text-sm text-gray-300">
+                        <i class="fas fa-bolt text-purple-500 mr-3"></i> Fast Response
+                    </div>
+                    <div class="flex items-center text-sm text-gray-300">
+                        <i class="fas fa-crown text-purple-500 mr-3"></i> Priority Support
+                    </div>
+                </div>
+
+                <button onclick="openModal('Gemini Pro', 'price-pro')" class="w-full py-3 rounded-xl btn-primary text-white font-bold transition text-sm shadow-lg">
+                    Select Pro
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="checkoutModal" class="fixed inset-0 z-[100] flex items-end md:items-center justify-center hidden">
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" onclick="closeModal()"></div>
+        
+        <div class="bg-[#111827] w-full md:w-[400px] p-6 md:rounded-2xl rounded-t-2xl relative z-10 border border-gray-700 shadow-2xl animate-slide-up">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-lg font-bold">Complete Payment</h3>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-white"><i class="fas fa-times"></i></button>
+            </div>
+            
+            <form id="checkoutForm" onsubmit="handlePayment(event)" class="space-y-4">
+                <div>
+                    <label class="text-xs text-gray-400 uppercase font-semibold">Plan</label>
+                    <input type="text" id="modalPlanName" class="w-full bg-transparent text-white font-bold border-none px-0 py-1 focus:ring-0" readonly>
+                </div>
+                <div>
+                    <label class="text-xs text-gray-400 uppercase font-semibold">Total Amount</label>
+                    <input type="text" id="modalPrice" class="w-full bg-transparent text-blue-400 font-bold text-xl border-none px-0 py-1 focus:ring-0" readonly>
+                </div>
+                
+                <div class="pt-2">
+                    <label class="block text-sm text-gray-300 mb-2">Email Address</label>
+                    <input type="email" id="userEmail" required placeholder="name@email.com" class="custom-input w-full px-4 py-3 rounded-lg text-sm">
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-300 mb-2">Phone Number</label>
+                    <input type="tel" id="userPhone" required placeholder="98XXXXXXXX" class="custom-input w-full px-4 py-3 rounded-lg text-sm">
+                </div>
+                
+                <button type="submit" class="w-full btn-primary mt-4 py-3.5 rounded-xl font-bold text-white shadow-lg text-sm">
+                    Pay Securely
                 </button>
             </form>
         </div>
     </div>
 
     <script>
-        // --- 1. Coupon Logic ---
+        // --- LOGIC SAME AS BEFORE, JUST UI CHANGED ---
+        
         let isCouponApplied = false;
 
         function applyCoupon() {
             const code = document.getElementById('couponInput').value.trim().toUpperCase();
             const messageEl = document.getElementById('couponMessage');
-            const priceLiteEl = document.getElementById('price-lite');
-            const priceProEl = document.getElementById('price-pro');
-
+            
             if (code === 'GAURAVAI') {
                 if (!isCouponApplied) {
-                    // Update Prices
-                    priceLiteEl.innerText = '11';
-                    priceProEl.innerText = '1499';
+                    document.getElementById('price-lite').innerText = '11';
+                    document.getElementById('price-pro').innerText = '1499';
                     
-                    // Success UI
-                    messageEl.innerText = '🔥 Coupon Applied! Massive Discount Unlocked.';
-                    messageEl.className = 'text-center mt-3 text-sm font-bold text-green-400 opacity-100';
+                    messageEl.innerText = '🎉 Coupon Applied Successfully!';
+                    messageEl.className = 'text-center mt-2 text-xs font-bold text-green-400';
                     isCouponApplied = true;
                 } else {
-                    messageEl.innerText = 'Coupon is already active!';
-                    messageEl.className = 'text-center mt-3 text-sm text-yellow-400 opacity-100';
+                    messageEl.innerText = 'Already applied!';
+                    messageEl.className = 'text-center mt-2 text-xs text-yellow-500';
                 }
             } else {
-                messageEl.innerText = 'Invalid Coupon Code.';
-                messageEl.className = 'text-center mt-3 text-sm text-red-400 opacity-100';
+                messageEl.innerText = 'Invalid Code';
+                messageEl.className = 'text-center mt-2 text-xs text-red-400';
             }
         }
 
-        // --- 2. Modal Logic ---
         const modal = document.getElementById('checkoutModal');
-        const modalContent = document.getElementById('modalContent');
         
         function openModal(planName, priceElementId) {
             const price = document.getElementById(priceElementId).innerText;
             document.getElementById('modalPlanName').value = planName;
             document.getElementById('modalPrice').value = '₹' + price;
-            
-            // Show Modal
             modal.classList.remove('hidden');
-            // Small delay for animation
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                modalContent.classList.remove('scale-95');
-                modalContent.classList.add('scale-100');
-            }, 10);
         }
 
         function closeModal() {
-            modal.classList.add('opacity-0');
-            modalContent.classList.remove('scale-100');
-            modalContent.classList.add('scale-95');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300);
+            modal.classList.add('hidden');
         }
 
-        // Close modal if clicking outside
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-
-        // --- 3. Razorpay Integration (The Magic) ---
         function handlePayment(e) {
             e.preventDefault();
-
-            // Collect Data from Form
             const email = document.getElementById('userEmail').value;
             const phone = document.getElementById('userPhone').value;
-            const amountText = document.getElementById('modalPrice').value.replace('₹', '');
-            const amount = parseInt(amountText) * 100; // Razorpay needs amount in paise
+            const amount = parseInt(document.getElementById('modalPrice').value.replace('₹', '')) * 100;
 
-            if(!email || !phone) {
-                alert("Please fill in all fields");
-                return;
-            }
+            if(!email || !phone) { alert("Please details bharein"); return; }
 
-            // RAZORPAY OPTIONS
+            // RAZORPAY CONFIG
             var options = {
-                "key": "YOUR_RAZORPAY_KEY_ID", // <--- PASTE YOUR KEY HERE LATER
+                "key": "YOUR_RAZORPAY_KEY_ID", // <--- APNI KEY YAHAN DALEIN
                 "amount": amount, 
                 "currency": "INR",
-                "name": "Gaurav AI Service",
-                "description": "Payment for " + document.getElementById('modalPlanName').value,
-                "image": "https://via.placeholder.com/150/3b82f6/ffffff?text=AI", // Optional Logo
+                "name": "Gaurav AI",
+                "description": "Premium Access",
                 "handler": function (response){
-                    // Success Handler
-                    alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
-                    // Here you would typically redirect them to a success page or give access
+                    alert("Success! Payment ID: " + response.razorpay_payment_id);
                     closeModal();
                 },
-                "prefill": {
-                    "email": email,      // This sends user email to Razorpay Dashboard
-                    "contact": phone     // This sends user phone to Razorpay Dashboard
-                },
-                "theme": {
-                    "color": "#9333ea"
-                }
+                "prefill": { "email": email, "contact": phone },
+                "theme": { "color": "#2563eb" }
             };
-
             var rzp1 = new Razorpay(options);
-            
-            rzp1.on('payment.failed', function (response){
-                alert("Payment Failed. Code: " + response.error.code);
-            });
-            
             rzp1.open();
         }
     </script>
 </body>
-</html>
+            </html>
+    
