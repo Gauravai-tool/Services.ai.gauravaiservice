@@ -1,197 +1,274 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GAURAV AI | Premium Access</title>
+    <title>GAURAV AI | Next Gen Generation</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#0B0F19',
+                        card: '#121826',
+                        primary: '#4F46E5', // Indigo
+                        accent: '#06B6D4', // Cyan
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #030712; /* Deepest Black/Blue */
-            color: #f8fafc;
+            background-color: #0B0F19;
+            color: #ffffff;
+            overflow-x: hidden;
         }
 
-        /* Modern Gradient Text */
-        .text-gradient {
-            background: linear-gradient(to right, #60a5fa, #c084fc);
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0B0F19; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #4F46E5; }
+
+        /* Glassmorphism Utilities */
+        .glass-nav {
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .glass-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(79, 70, 229, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(79, 70, 229, 0.2);
+        }
+
+        /* Neon Text Glow */
+        .text-glow {
+            text-shadow: 0 0 20px rgba(79, 70, 229, 0.5);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(to right, #818cf8, #22d3ee);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* Premium Card Style - No blurry mess, just clean dark grey */
-        .premium-card {
-            background-color: #111827; /* Dark Gray */
-            border: 1px solid #374151;
-            border-radius: 16px;
+        /* Inputs */
+        .cenai-input {
+            background: rgba(18, 24, 38, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
             transition: all 0.3s ease;
         }
-        
-        .premium-card:hover {
-            border-color: #60a5fa;
-            transform: translateY(-2px);
-        }
-
-        /* Input Fields Reset */
-        .custom-input {
-            background-color: #1f2937;
-            border: 1px solid #374151;
-            color: white;
-            transition: all 0.2s;
-        }
-        .custom-input:focus {
-            border-color: #60a5fa;
+        .cenai-input:focus {
+            border-color: #4F46E5;
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
             outline: none;
-            background-color: #111827;
-        }
-
-        /* Action Button */
-        .btn-primary {
-            background: linear-gradient(135deg, #2563eb, #7c3aed);
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-        }
-        .btn-primary:active {
-            transform: scale(0.98);
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="antialiased">
 
-    <nav class="w-full py-5 px-6 flex justify-between items-center bg-[#030712]/90 backdrop-blur-md fixed top-0 z-50 border-b border-gray-800">
-        <div class="text-xl font-bold tracking-tight">
-            GAURAV<span class="text-blue-500">.AI</span>
-        </div>
-        <div class="text-xs text-gray-400 bg-gray-900 px-3 py-1 rounded-full border border-gray-800">
-            v2.0 Beta
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[128px] animate-blob mix-blend-screen"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-[128px] animate-blob animation-delay-2000 mix-blend-screen"></div>
+    </div>
+
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded bg-gradient-to-tr from-primary to-accent flex items-center justify-center">
+                    <i class="fas fa-brain text-white text-sm"></i>
+                </div>
+                <span class="text-xl font-bold tracking-wide">GAURAV<span class="text-primary">AI</span></span>
+            </div>
+            <a href="#pricing" class="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium text-white bg-white/5 border border-white/10 rounded-full hover:bg-primary hover:border-primary transition-all duration-300">
+                Get Access
+            </a>
         </div>
     </nav>
 
-    <main class="flex-grow pt-28 pb-10 px-4">
-        
-        <div class="text-center max-w-2xl mx-auto mb-12">
-            <span class="text-blue-500 font-semibold tracking-wider text-xs uppercase mb-2 block">Powered by Gemini Ultra</span>
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
-                Unlock <br><span class="text-gradient">Super Intelligence</span>
+    <section class="relative z-10 pt-32 pb-20 md:pt-48 md:pb-32 px-6">
+        <div class="max-w-5xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-wider mb-8 animate-float">
+                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                Powered by Gemini Ultra
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8">
+                Unleash <span class="gradient-text text-glow">Creative</span> <br>
+                <span class="text-white">Intelligence</span>
             </h1>
-            <p class="text-gray-400 text-sm md:text-base leading-relaxed">
-                Generate code, content, and ideas instantly. Choose a plan to get started immediately.
+            
+            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
+                Generate high-quality content, code, and strategies in seconds. 
+                The most advanced AI model is now at your fingertips.
             </p>
-        </div>
 
-        <div class="max-w-md mx-auto mb-10">
-            <div class="bg-gray-900/50 p-2 rounded-xl border border-gray-800 flex gap-2">
-                <input type="text" id="couponInput" placeholder="Have a code? (Try GAURAVAI)" class="custom-input w-full px-4 py-3 rounded-lg text-sm">
-                <button onclick="applyCoupon()" class="bg-gray-800 hover:bg-gray-700 text-white px-5 rounded-lg text-sm font-semibold transition border border-gray-700">
-                    Apply
-                </button>
+            <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                <a href="#pricing" class="px-8 py-4 rounded-full bg-gradient-to-r from-primary to-blue-600 text-white font-semibold hover:shadow-[0_0_30px_-5px_rgba(79,70,229,0.5)] transition-all duration-300 w-full md:w-auto">
+                    Start Generating
+                </a>
+                <a href="#features" class="px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-semibold hover:bg-white/10 transition-all duration-300 w-full md:w-auto">
+                    View Features
+                </a>
             </div>
-            <p id="couponMessage" class="text-center mt-2 text-xs font-semibold h-4"></p>
         </div>
+    </section>
 
-        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+    <section id="pricing" class="relative z-10 py-24 px-6 bg-dark/50 border-t border-white/5">
+        <div class="max-w-7xl mx-auto">
             
-            <div class="premium-card p-6 flex flex-col relative">
-                <h3 class="text-gray-400 font-medium mb-1">Starter</h3>
-                <h2 class="text-2xl font-bold text-white mb-4">Gemini Lite</h2>
-                <div class="mb-6">
-                    <span class="text-3xl font-bold text-white">₹<span id="price-lite">99</span></span>
-                    <span class="text-gray-500 text-sm line-through ml-2">₹199</span>
-                </div>
-                
-                <div class="space-y-3 mb-8 flex-1">
-                    <div class="flex items-center text-sm text-gray-300">
-                        <i class="fas fa-check-circle text-blue-500 mr-3"></i> 100 Generations
-                    </div>
-                    <div class="flex items-center text-sm text-gray-300">
-                        <i class="fas fa-check-circle text-blue-500 mr-3"></i> Standard Speed
-                    </div>
-                    <div class="flex items-center text-sm text-gray-300">
-                        <i class="fas fa-check-circle text-blue-500 mr-3"></i> Email Support
-                    </div>
-                </div>
-
-                <button onclick="openModal('Gemini Lite', 'price-lite')" class="w-full py-3 rounded-xl bg-gray-800 hover:bg-gray-700 text-white font-semibold transition border border-gray-700 text-sm">
-                    Select Lite
-                </button>
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Simple Pricing</h2>
+                <p class="text-gray-400">Choose the plan that fits your needs.</p>
             </div>
 
-            <div class="premium-card p-6 flex flex-col relative border-blue-500/30">
-                <div class="absolute -top-3 right-4 bg-gradient-to-r from-blue-600 to-purple-600 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-                    Most Popular
+            <div class="max-w-md mx-auto mb-16 relative">
+                <div class="flex p-1 rounded-xl bg-[#121826] border border-white/10">
+                    <input type="text" id="couponInput" placeholder="Enter Coupon: GAURAVAI" class="w-full bg-transparent border-none text-white px-4 focus:ring-0 placeholder-gray-600">
+                    <button onclick="applyCoupon()" class="px-6 py-2 rounded-lg bg-primary/20 text-primary hover:bg-primary hover:text-white transition font-medium text-sm border border-primary/20">
+                        Apply
+                    </button>
                 </div>
-                <h3 class="text-blue-400 font-medium mb-1">Professional</h3>
-                <h2 class="text-2xl font-bold text-white mb-4">Gemini Pro</h2>
-                <div class="mb-6">
-                    <span class="text-3xl font-bold text-white">₹<span id="price-pro">1999</span></span>
-                    <span class="text-gray-500 text-sm line-through ml-2">₹2999</span>
-                </div>
-                
-                <div class="space-y-3 mb-8 flex-1">
-                    <div class="flex items-center text-sm text-gray-300">
-                        <i class="fas fa-star text-purple-500 mr-3"></i> Unlimited Access
-                    </div>
-                    <div class="flex items-center text-sm text-gray-300">
-                        <i class="fas fa-bolt text-purple-500 mr-3"></i> Fast Response
-                    </div>
-                    <div class="flex items-center text-sm text-gray-300">
-                        <i class="fas fa-crown text-purple-500 mr-3"></i> Priority Support
-                    </div>
-                </div>
-
-                <button onclick="openModal('Gemini Pro', 'price-pro')" class="w-full py-3 rounded-xl btn-primary text-white font-bold transition text-sm shadow-lg">
-                    Select Pro
-                </button>
+                <div id="couponMessage" class="absolute -bottom-8 left-0 w-full text-center text-sm font-medium h-6"></div>
             </div>
 
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                
+                <div class="glass-card rounded-3xl p-8 md:p-10 relative group">
+                    <div class="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl"></div>
+                    
+                    <h3 class="text-xl font-medium text-gray-300 mb-2">Gemini Lite</h3>
+                    <div class="flex items-baseline gap-2 mb-8">
+                        <span class="text-5xl font-bold text-white">₹<span id="price-lite">99</span></span>
+                        <span class="text-xl text-gray-600 line-through">₹199</span>
+                    </div>
+
+                    <ul class="space-y-4 mb-10 text-gray-400">
+                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-primary"></i> 100 Generations</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-primary"></i> Standard Speed</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-primary"></i> Basic Support</li>
+                    </ul>
+
+                    <button onclick="openModal('Gemini Lite', 'price-lite')" class="w-full py-4 rounded-xl border border-white/10 text-white font-semibold hover:bg-white/5 transition-colors">
+                        Choose Lite
+                    </button>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 md:p-10 relative overflow-hidden border-primary/30">
+                    <div class="absolute -top-24 -right-24 w-48 h-48 bg-primary/30 rounded-full blur-3xl"></div>
+                    <div class="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl z-20">POPULAR</div>
+                    
+                    <h3 class="text-xl font-medium text-white mb-2 relative z-10">Gemini Pro</h3>
+                    <div class="flex items-baseline gap-2 mb-8 relative z-10">
+                        <span class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">₹<span id="price-pro">1999</span></span>
+                        <span class="text-xl text-gray-600 line-through">₹2999</span>
+                    </div>
+
+                    <ul class="space-y-4 mb-10 text-gray-300 relative z-10">
+                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-accent"></i> Unlimited Generations</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-accent"></i> Flash Speed (0.2s)</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-accent"></i> Priority Support</li>
+                        <li class="flex items-center gap-3"><i class="fas fa-check-circle text-accent"></i> Access to GPT-4</li>
+                    </ul>
+
+                    <button onclick="openModal('Gemini Pro', 'price-pro')" class="relative z-10 w-full py-4 rounded-xl bg-gradient-to-r from-primary to-blue-600 text-white font-bold shadow-lg hover:shadow-primary/25 transition-all">
+                        Get Pro Access
+                    </button>
+                </div>
+
+            </div>
         </div>
-    </main>
+    </section>
 
-    <div id="checkoutModal" class="fixed inset-0 z-[100] flex items-end md:items-center justify-center hidden">
-        <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" onclick="closeModal()"></div>
+    <footer class="py-10 text-center border-t border-white/5 text-gray-600 text-sm">
+        <p>&copy; 2024 Gaurav AI Service. All rights reserved.</p>
+    </footer>
+
+    <div id="checkoutModal" class="fixed inset-0 z-[100] flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeModal()"></div>
         
-        <div class="bg-[#111827] w-full md:w-[400px] p-6 md:rounded-2xl rounded-t-2xl relative z-10 border border-gray-700 shadow-2xl animate-slide-up">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-lg font-bold">Complete Payment</h3>
-                <button onclick="closeModal()" class="text-gray-400 hover:text-white"><i class="fas fa-times"></i></button>
+        <div class="relative z-10 w-full max-w-md bg-[#0F1420] border border-white/10 rounded-2xl p-8 shadow-2xl transform scale-95 transition-transform duration-300" id="modalContent">
+            
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white transition">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold text-white mb-1">Final Step</h3>
+                <p class="text-gray-400 text-sm">Complete your purchase securely.</p>
             </div>
             
-            <form id="checkoutForm" onsubmit="handlePayment(event)" class="space-y-4">
-                <div>
-                    <label class="text-xs text-gray-400 uppercase font-semibold">Plan</label>
-                    <input type="text" id="modalPlanName" class="w-full bg-transparent text-white font-bold border-none px-0 py-1 focus:ring-0" readonly>
+            <form id="checkoutForm" onsubmit="handlePayment(event)" class="space-y-5">
+                <div class="p-4 rounded-xl bg-white/5 border border-white/5 flex justify-between items-center">
+                    <div>
+                        <p class="text-xs text-gray-400 uppercase tracking-wider mb-1">Selected Plan</p>
+                        <input type="text" id="modalPlanName" class="bg-transparent border-none p-0 text-white font-semibold w-full focus:ring-0" readonly>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-xs text-gray-400 uppercase tracking-wider mb-1">Total</p>
+                        <input type="text" id="modalPrice" class="bg-transparent border-none p-0 text-primary font-bold text-xl w-full text-right focus:ring-0" readonly>
+                    </div>
                 </div>
-                <div>
-                    <label class="text-xs text-gray-400 uppercase font-semibold">Total Amount</label>
-                    <input type="text" id="modalPrice" class="w-full bg-transparent text-blue-400 font-bold text-xl border-none px-0 py-1 focus:ring-0" readonly>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1.5">Email Address</label>
+                        <input type="email" id="userEmail" required placeholder="name@example.com" class="w-full cenai-input px-4 py-3 rounded-xl text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-1.5">Phone Number</label>
+                        <input type="tel" id="userPhone" required placeholder="+91 98765 43210" class="w-full cenai-input px-4 py-3 rounded-xl text-sm">
+                    </div>
                 </div>
                 
-                <div class="pt-2">
-                    <label class="block text-sm text-gray-300 mb-2">Email Address</label>
-                    <input type="email" id="userEmail" required placeholder="name@email.com" class="custom-input w-full px-4 py-3 rounded-lg text-sm">
-                </div>
-                <div>
-                    <label class="block text-sm text-gray-300 mb-2">Phone Number</label>
-                    <input type="tel" id="userPhone" required placeholder="98XXXXXXXX" class="custom-input w-full px-4 py-3 rounded-lg text-sm">
-                </div>
-                
-                <button type="submit" class="w-full btn-primary mt-4 py-3.5 rounded-xl font-bold text-white shadow-lg text-sm">
-                    Pay Securely
+                <button type="submit" class="w-full py-4 rounded-xl bg-primary hover:bg-indigo-500 text-white font-bold shadow-lg shadow-primary/20 transition-all duration-200 mt-2">
+                    Pay Securely <i class="fas fa-arrow-right ml-2 text-xs"></i>
                 </button>
             </form>
         </div>
     </div>
 
     <script>
-        // --- LOGIC SAME AS BEFORE, JUST UI CHANGED ---
-        
+        // --- COUPON LOGIC ---
         let isCouponApplied = false;
 
         function applyCoupon() {
@@ -203,58 +280,78 @@
                     document.getElementById('price-lite').innerText = '11';
                     document.getElementById('price-pro').innerText = '1499';
                     
-                    messageEl.innerText = '🎉 Coupon Applied Successfully!';
-                    messageEl.className = 'text-center mt-2 text-xs font-bold text-green-400';
+                    messageEl.innerHTML = '<span class="text-green-400"><i class="fas fa-check-circle"></i> Coupon Applied Successfully!</span>';
                     isCouponApplied = true;
                 } else {
-                    messageEl.innerText = 'Already applied!';
-                    messageEl.className = 'text-center mt-2 text-xs text-yellow-500';
+                    messageEl.innerHTML = '<span class="text-yellow-500">Coupon already active.</span>';
                 }
             } else {
-                messageEl.innerText = 'Invalid Code';
-                messageEl.className = 'text-center mt-2 text-xs text-red-400';
+                messageEl.innerHTML = '<span class="text-red-400">Invalid Coupon Code.</span>';
             }
+            
+            // Clear message after 3 seconds
+            setTimeout(() => { messageEl.innerHTML = ''; }, 3000);
         }
 
+        // --- MODAL LOGIC ---
         const modal = document.getElementById('checkoutModal');
+        const modalContent = document.getElementById('modalContent');
         
         function openModal(planName, priceElementId) {
             const price = document.getElementById(priceElementId).innerText;
             document.getElementById('modalPlanName').value = planName;
             document.getElementById('modalPrice').value = '₹' + price;
+            
             modal.classList.remove('hidden');
+            // Animation handling
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95');
+                modalContent.classList.add('scale-100');
+            }, 10);
         }
 
         function closeModal() {
-            modal.classList.add('hidden');
+            modal.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
         }
 
+        // --- PAYMENT LOGIC ---
         function handlePayment(e) {
             e.preventDefault();
             const email = document.getElementById('userEmail').value;
             const phone = document.getElementById('userPhone').value;
-            const amount = parseInt(document.getElementById('modalPrice').value.replace('₹', '')) * 100;
+            const amountText = document.getElementById('modalPrice').value.replace('₹', '');
+            const amount = parseInt(amountText) * 100;
 
-            if(!email || !phone) { alert("Please details bharein"); return; }
+            if(!email || !phone) { alert("Please fill all details"); return; }
 
-            // RAZORPAY CONFIG
             var options = {
-                "key": "YOUR_RAZORPAY_KEY_ID", // <--- APNI KEY YAHAN DALEIN
+                "key": "YOUR_RAZORPAY_KEY_ID", // <--- REPLACE THIS
                 "amount": amount, 
                 "currency": "INR",
                 "name": "Gaurav AI",
-                "description": "Premium Access",
+                "description": "Payment for " + document.getElementById('modalPlanName').value,
                 "handler": function (response){
-                    alert("Success! Payment ID: " + response.razorpay_payment_id);
+                    alert("Payment Successful! Ref: " + response.razorpay_payment_id);
                     closeModal();
                 },
-                "prefill": { "email": email, "contact": phone },
-                "theme": { "color": "#2563eb" }
+                "prefill": {
+                    "email": email,
+                    "contact": phone
+                },
+                "theme": {
+                    "color": "#4F46E5"
+                }
             };
             var rzp1 = new Razorpay(options);
             rzp1.open();
         }
     </script>
 </body>
-            </html>
+    </html>
     
